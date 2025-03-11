@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Runtime API Examples | Robert-jx</title>
+    <meta name="description" content="Robert-jx的个人学习网站">
+    <meta name="generator" content="VitePress v1.6.3">
+    <link rel="preload stylesheet" href="/blog/assets/style.VFlnCJil.css" as="style">
+    <link rel="preload stylesheet" href="/blog/vp-icons.css" as="style">
+    
+    <script type="module" src="/blog/assets/app.CC2fz70m.js"></script>
+    <link rel="preload" href="/blog/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="modulepreload" href="/blog/assets/chunks/theme.CAv7ztdy.js">
+    <link rel="modulepreload" href="/blog/assets/chunks/framework.CLNW5JS9.js">
+    <link rel="modulepreload" href="/blog/assets/api-examples.md.BgAPd291.lean.js">
+    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div class="Layout" data-v-b3b10422><!--[--><!--]--><!--[--><span tabindex="-1" data-v-3ec61751></span><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-3ec61751>Skip to content</a><!--]--><!----><header class="VPNav" data-v-b3b10422 data-v-4a4ae31d><div class="VPNavBar" data-v-4a4ae31d data-v-82255d55><div class="wrapper" data-v-82255d55><div class="container" data-v-82255d55><div class="title" data-v-82255d55><div class="VPNavBarTitle" data-v-82255d55 data-v-40cd32b1><a class="title" href="/blog/" data-v-40cd32b1><!--[--><!--]--><!--[--><img class="VPImage logo" src="/blog/images/logo.jpeg" alt data-v-69d627b7><!--]--><span data-v-40cd32b1>Robert-jx</span><!--[--><!--]--></a></div></div><div class="content" data-v-82255d55><div class="content-body" data-v-82255d55><!--[--><!--]--><div class="VPNavBarSearch search" data-v-82255d55><!----></div><nav aria-labelledby="main-nav-aria-label" class="VPNavBarMenu menu" data-v-82255d55 data-v-e7739114><span id="main-nav-aria-label" class="visually-hidden" data-v-e7739114> Main Navigation </span><!--[--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/blog/" tabindex="0" data-v-e7739114 data-v-9fbb2e8b><!--[--><span data-v-9fbb2e8b>主页</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/blog/vue/echarts.html" tabindex="0" data-v-e7739114 data-v-9fbb2e8b><!--[--><span data-v-9fbb2e8b>Vue</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/blog/markdown-examples.html" tabindex="0" data-v-e7739114 data-v-9fbb2e8b><!--[--><span data-v-9fbb2e8b>Javascript</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/blog/markdown-examples.html" tabindex="0" data-v-e7739114 data-v-9fbb2e8b><!--[--><span data-v-9fbb2e8b>Three.js</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/blog/markdown-examples.html" tabindex="0" data-v-e7739114 data-v-9fbb2e8b><!--[--><span data-v-9fbb2e8b>Python</span><!--]--></a><!--]--><!--]--></nav><!----><div class="VPNavBarAppearance appearance" data-v-82255d55 data-v-f4949781><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-f4949781 data-v-800a22cc data-v-837a5763><span class="check" data-v-837a5763><span class="icon" data-v-837a5763><!--[--><span class="vpi-sun sun" data-v-800a22cc></span><span class="vpi-moon moon" data-v-800a22cc></span><!--]--></span></span></button></div><div class="VPSocialLinks VPNavBarSocialLinks social-links" data-v-82255d55 data-v-5d043500 data-v-4677eafa><!--[--><a class="VPSocialLink no-icon" href="https://github.com/robert-jx" aria-label="github" target="_blank" rel="noopener" data-v-4677eafa data-v-ab349db2><span class="vpi-social-github"></span></a><!--]--></div><div class="VPFlyout VPNavBarExtra extra" data-v-82255d55 data-v-d373b1ad data-v-3ebbcfa9><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="extra navigation" data-v-3ebbcfa9><span class="vpi-more-horizontal icon" data-v-3ebbcfa9></span></button><div class="menu" data-v-3ebbcfa9><div class="VPMenu" data-v-3ebbcfa9 data-v-95485208><!----><!--[--><!--[--><!----><div class="group" data-v-d373b1ad><div class="item appearance" data-v-d373b1ad><p class="label" data-v-d373b1ad>Appearance</p><div class="appearance-action" data-v-d373b1ad><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-d373b1ad data-v-800a22cc data-v-837a5763><span class="check" data-v-837a5763><span class="icon" data-v-837a5763><!--[--><span class="vpi-sun sun" data-v-800a22cc></span><span class="vpi-moon moon" data-v-800a22cc></span><!--]--></span></span></button></div></div></div><div class="group" data-v-d373b1ad><div class="item social-links" data-v-d373b1ad><div class="VPSocialLinks social-links-list" data-v-d373b1ad data-v-4677eafa><!--[--><a class="VPSocialLink no-icon" href="https://github.com/robert-jx" aria-label="github" target="_blank" rel="noopener" data-v-4677eafa data-v-ab349db2><span class="vpi-social-github"></span></a><!--]--></div></div></div><!--]--><!--]--></div></div></div><!--[--><!--]--><button type="button" class="VPNavBarHamburger hamburger" aria-label="mobile navigation" aria-expanded="false" aria-controls="VPNavScreen" data-v-82255d55 data-v-9ca76754><span class="container" data-v-9ca76754><span class="top" data-v-9ca76754></span><span class="middle" data-v-9ca76754></span><span class="bottom" data-v-9ca76754></span></span></button></div></div></div></div><div class="divider" data-v-82255d55><div class="divider-line" data-v-82255d55></div></div></div><!----></header><div class="VPLocalNav empty fixed" data-v-b3b10422 data-v-d6032961><div class="container" data-v-d6032961><!----><div class="VPLocalNavOutlineDropdown" style="--vp-vh:0px;" data-v-d6032961 data-v-88072948><button data-v-88072948>Return to top</button><!----></div></div></div><!----><div class="VPContent" id="VPContent" data-v-b3b10422 data-v-c9ad48e2><div class="VPDoc has-aside" data-v-c9ad48e2 data-v-374c0d7a><!--[--><!--]--><div class="container" data-v-374c0d7a><div class="aside" data-v-374c0d7a><div class="aside-curtain" data-v-374c0d7a></div><div class="aside-container" data-v-374c0d7a><div class="aside-content" data-v-374c0d7a><div class="VPDocAside" data-v-374c0d7a data-v-06d30b8a><!--[--><!--]--><!--[--><!--]--><nav aria-labelledby="doc-outline-aria-label" class="VPDocAsideOutline" data-v-06d30b8a data-v-601eaa65><div class="content" data-v-601eaa65><div class="outline-marker" data-v-601eaa65></div><div aria-level="2" class="outline-title" id="doc-outline-aria-label" role="heading" data-v-601eaa65>On this page</div><ul class="VPDocOutlineItem root" data-v-601eaa65 data-v-52293124><!--[--><!--]--></ul></div></nav><!--[--><!--]--><div class="spacer" data-v-06d30b8a></div><!--[--><!--]--><!----><!--[--><!--]--><!--[--><!--]--></div></div></div></div><div class="content" data-v-374c0d7a><div class="content-container" data-v-374c0d7a><!--[--><!--]--><main class="main" data-v-374c0d7a><div style="position:relative;" class="vp-doc _blog_api-examples" data-v-374c0d7a><div><h1 id="runtime-api-examples" tabindex="-1">Runtime API Examples <a class="header-anchor" href="#runtime-api-examples" aria-label="Permalink to &quot;Runtime API Examples&quot;">​</a></h1><p>This page demonstrates usage of some of the runtime APIs provided by VitePress.</p><p>The main <code>useData()</code> API can be used to access site, theme, and page data for the current page. It works in both <code>.md</code> and <code>.vue</code> files:</p><div class="language-md vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">md</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;script setup&gt;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">import { useData } from &#39;vitepress&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">const { theme, page, frontmatter } = useData()</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;/script&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;">## Results</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;">### Theme Data</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;pre&gt;{{ theme }}&lt;/pre&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;">### Page Data</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;pre&gt;{{ page }}&lt;/pre&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;">### Page Frontmatter</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;pre&gt;{{ frontmatter }}&lt;/pre&gt;</span></span></code></pre></div><h2 id="results" tabindex="-1">Results <a class="header-anchor" href="#results" aria-label="Permalink to &quot;Results&quot;">​</a></h2><h3 id="theme-data" tabindex="-1">Theme Data <a class="header-anchor" href="#theme-data" aria-label="Permalink to &quot;Theme Data&quot;">​</a></h3><pre>{
+  &quot;nav&quot;: [
+    {
+      &quot;text&quot;: &quot;主页&quot;,
+      &quot;link&quot;: &quot;/&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Vue&quot;,
+      &quot;link&quot;: &quot;/vue/echarts&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Javascript&quot;,
+      &quot;link&quot;: &quot;/markdown-examples&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Three.js&quot;,
+      &quot;link&quot;: &quot;/markdown-examples&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Python&quot;,
+      &quot;link&quot;: &quot;/markdown-examples&quot;
+    }
+  ],
+  &quot;sidebar&quot;: {
+    &quot;/vue/&quot;: [
+      {
+        &quot;text&quot;: &quot;Vue&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;echarts常见三类图标的封装&quot;,
+            &quot;link&quot;: &quot;/vue/echarts&quot;
+          },
+          {
+            &quot;text&quot;: &quot;ant-design-vue安装使用及常见问题总结&quot;,
+            &quot;link&quot;: &quot;/vue/ant-design-vue&quot;
+          },
+          {
+            &quot;text&quot;: &quot;axios 使用总结&quot;,
+            &quot;link&quot;: &quot;/vue/axios&quot;
+          }
+        ]
+      }
+    ],
+    &quot;/config/&quot;: [
+      {
+        &quot;text&quot;: &quot;Config&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Index&quot;,
+            &quot;link&quot;: &quot;/config/&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Three&quot;,
+            &quot;link&quot;: &quot;/config/three&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Four&quot;,
+            &quot;link&quot;: &quot;/config/four&quot;
+          }
+        ]
+      }
+    ]
+  },
+  &quot;socialLinks&quot;: [
+    {
+      &quot;icon&quot;: &quot;github&quot;,
+      &quot;link&quot;: &quot;https://github.com/robert-jx&quot;
+    }
+  ],
+  &quot;logo&quot;: &quot;/images/logo.jpeg&quot;
+}</pre><h3 id="page-data" tabindex="-1">Page Data <a class="header-anchor" href="#page-data" aria-label="Permalink to &quot;Page Data&quot;">​</a></h3><pre>{
+  &quot;title&quot;: &quot;Runtime API Examples&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;frontmatter&quot;: {
+    &quot;outline&quot;: &quot;deep&quot;
+  },
+  &quot;headers&quot;: [],
+  &quot;relativePath&quot;: &quot;api-examples.md&quot;,
+  &quot;filePath&quot;: &quot;api-examples.md&quot;
+}</pre><h3 id="page-frontmatter" tabindex="-1">Page Frontmatter <a class="header-anchor" href="#page-frontmatter" aria-label="Permalink to &quot;Page Frontmatter&quot;">​</a></h3><pre>{
+  &quot;outline&quot;: &quot;deep&quot;
+}</pre><h2 id="more" tabindex="-1">More <a class="header-anchor" href="#more" aria-label="Permalink to &quot;More&quot;">​</a></h2><p>Check out the documentation for the <a href="https://vitepress.dev/reference/runtime-api#usedata" target="_blank" rel="noreferrer">full list of runtime APIs</a>.</p></div></div></main><footer class="VPDocFooter" data-v-374c0d7a data-v-fdb0cd02><!--[--><!--]--><!----><!----></footer><!--[--><!--]--></div></div></div><!--[--><!--]--></div></div><!----><!--[--><!--]--></div></div>
+    <script>window.__VP_HASH_MAP__=JSON.parse("{\"api-examples.md\":\"BgAPd291\",\"index.md\":\"DybyS_Is\",\"markdown-examples.md\":\"B1xSfyX3\",\"readme.md\":\"CnUq35F2\",\"vue_ant-design-vue.md\":\"ogVP94Zx\",\"vue_axios.md\":\"rOdTpGK0\",\"vue_echarts.md\":\"DePnwx1N\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"Robert-jx\",\"description\":\"Robert-jx的个人学习网站\",\"base\":\"/blog/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"nav\":[{\"text\":\"主页\",\"link\":\"/\"},{\"text\":\"Vue\",\"link\":\"/vue/echarts\"},{\"text\":\"Javascript\",\"link\":\"/markdown-examples\"},{\"text\":\"Three.js\",\"link\":\"/markdown-examples\"},{\"text\":\"Python\",\"link\":\"/markdown-examples\"}],\"sidebar\":{\"/vue/\":[{\"text\":\"Vue\",\"items\":[{\"text\":\"echarts常见三类图标的封装\",\"link\":\"/vue/echarts\"},{\"text\":\"ant-design-vue安装使用及常见问题总结\",\"link\":\"/vue/ant-design-vue\"},{\"text\":\"axios 使用总结\",\"link\":\"/vue/axios\"}]}],\"/config/\":[{\"text\":\"Config\",\"items\":[{\"text\":\"Index\",\"link\":\"/config/\"},{\"text\":\"Three\",\"link\":\"/config/three\"},{\"text\":\"Four\",\"link\":\"/config/four\"}]}]},\"socialLinks\":[{\"icon\":\"github\",\"link\":\"https://github.com/robert-jx\"}],\"logo\":\"/images/logo.jpeg\"},\"locales\":{},\"scrollOffset\":134,\"cleanUrls\":false}");</script>
+    
+  </body>
+</html>
