@@ -7,10 +7,10 @@ hero:
   text: "个人学习网站"
   tagline: 记录日常学习和工作常遇问题及知识点
 
-  #右边图片
-  image:
-    src: /images/logo.jpeg
-    alt: VitePress
+  # #右边图片
+  # image:
+  #   src: /images/logo.jpeg
+  #   alt: VitePress
   actions:
     - theme: brand
       text: Vue
