@@ -17,7 +17,13 @@ hero:
       link: /vue/echarts
     - theme: alt
       text: Javascript
-      link: /api-examples
+      link: /javascript/copy-text
+    - theme: alt
+      text: Three.js
+      link: /three/use
+    - theme: alt
+      text: Python
+      link: /python/qrcode
 
 features:
   - title: Feature A

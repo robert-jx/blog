@@ -1,21 +1,14 @@
----
-title: vue3-三维地图的实现
-date: '2024-05-16'
-summary: ''
-draft: false
-tags: ['vue3','typescript','threejs','d3','vite','gis']
-canonicalUrl: ''
----
+# vue3-三维地图的实现
 
 最近看到网上各种三维地图的效果，也想着学习一下。因此记录一下学习路程。
 
-### 创建项目
+## 创建项目
 
 这里使用的 `vite` 搭建的 `vue3` 项目，具体操作可以参考我之前的博客：
 
-[【基于vite的vue3项目创建】](https://robert-jx.github.io/blogs/vue3/%E5%9F%BA%E4%BA%8Evite%E7%9A%84vue3%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA)
+[【基于vite的vue3项目创建】](https://robert-jx.github.io/blog/vue/vite.html)
 
-### 安装与引入
+## 安装与引入
 
 项目的基础搭建完毕之后，需要的就是引入 `three.js` 和 `d3`
 
@@ -32,13 +25,13 @@ import * as d3 from 'd3';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 ```
 
-### 准备地图JSON
+## 准备地图JSON
 
 做三维地图，需要使用地图的 json 数据，这里可以用阿里云的工具来获取对应的数据。
 
 https://datav.aliyun.com/portal/school/atlas/area_selector
 
-### 整体代码
+## 整体代码
 
 接下来就是具体的代码实现：
 

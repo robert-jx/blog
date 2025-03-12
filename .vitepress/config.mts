@@ -10,9 +10,9 @@ export default defineConfig({
     nav: [
       { text: '主页', link: '/' },
       { text: 'Vue', link: '/vue/axios' },
-      { text: 'Javascript', link: '/markdown-examples' },
-      { text: 'Three.js', link: '/markdown-examples' },
-      { text: 'Python', link: '/markdown-examples' }
+      { text: 'Javascript', link: '/javascript/copy-text' },
+      { text: 'Three.js', link: '/three/use' },
+      { text: 'Python', link: '/python/qrcode' }
     ],
 
     sidebar: {
@@ -56,16 +56,43 @@ export default defineConfig({
       ],
 
       // 当用户位于 `config` 目录时，会显示此侧边栏
-      '/config/': [
+      '/three/': [
         {
-          text: 'Config',
+          text: 'Three',
           items: [
-            { text: 'Index', link: '/config/' },
-            { text: 'Three', link: '/config/three' },
-            { text: 'Four', link: '/config/four' }
+            { text: '安装与使用', link: '/three/use' },
+            { text: '镜头切换', link: '/three/camera' },
+            { text: 'vue3-三维地图的实现', link: '/three/map' },
           ]
         }
-      ]
+      ],
+      // 当用户位于 `config` 目录时，会显示此侧边栏
+      '/javascript/': [
+        {
+          text: 'Javascript',
+          items: [
+            { text: '实现文本复制功能', link: '/javascript/copy-text' },
+            { text: '数组与树之间的转换', link: '/javascript/arr-tree' },
+            { text: '当前时间戳、日期转换', link: '/javascript/time-change' },
+            { text: '获取视频第一帧截图', link: '/javascript/video-screenshot' },
+            { text: '数组根据某个字段排序', link: '/javascript/arr-sort' },
+            { text: '使用正则进行手机号、邮箱、身份证验证', link: '/javascript/form-verify' },
+            { text: '获取屏幕缩放比例和分辨率', link: '/javascript/screen-zoom' },
+            { text: '解决跨页选择后对数据判断的问题', link: '/javascript/crosspage-selection' },
+            { text: '获取image图片的原始尺寸', link: '/javascript/image-originsize' },
+            { text: '生成桌面快捷方式', link: '/javascript/shortcuts' },
+          ]
+        }
+      ],
+      '/python/': [
+        {
+          text: 'Python',
+          items: [
+            { text: '生成二维码', link: '/python/qrcode' },
+            { text: '坐标对比的GUI程序实现', link: '/python/coordinate-compare' },
+          ]
+        }
+      ],
     },
 
 
