@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Robert-jx"
-  text: "个人学习网站"
-  tagline: 记录日常学习和工作常遇问题及知识点
+  text: "welcome mutual learning and common progress"
+  tagline: 工作学习| 前沿技术探索 | 组件库开发秘籍
 
   # #右边图片
   # image:
@@ -26,11 +26,11 @@ hero:
       link: /python/qrcode
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 工作学习
+    details: 记载工作和学习时常遇到的问题以及知识点
+  - title: 组件库开发秘籍
+    details: 对常用的组件库进行学习和使用的封装
+  - title: 前沿技术探索
+    details: 不断探索新技术 不局限于前端
 ---
 
