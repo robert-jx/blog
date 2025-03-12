@@ -35,6 +35,7 @@ export default defineConfig({
             { text: 'jessibuca 视频插件的使用', link: '/vue/jessibuca' },
             { text: 'svg 内添加鼠标事件', link: '/vue/svg-mouse' },
             { text: '实时监听窗口宽度变化', link: '/vue/real-window' },
+            { text: '实现项目的自动化部署', link: '/vue/deploy' },
           ]
         },
 
