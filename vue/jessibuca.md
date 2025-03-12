@@ -1,4 +1,4 @@
-# jessibuca视频插件的使用
+# jessibuca 视频插件的使用
 
 近期工作上面新增需求：需要支持播放解码 `H.264` 和 `H.265` 的视频。而原来项目中的组件无法满足该需求，因此研究了下 [`jessibuca`](https://jessibuca.com/document.html) 这个插件。
 

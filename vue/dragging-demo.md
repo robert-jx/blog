@@ -1,4 +1,4 @@
-# 基于vue3+vite+typescript的拖拽布点功能实现
+# 基于 vue3+vite+typescript 的拖拽布点功能实现
 
 ## 拖拽布点功能
 

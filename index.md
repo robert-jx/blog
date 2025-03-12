@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Robert-jx"
   text: "welcome mutual learning and common progress"
-  tagline: 工作学习| 前沿技术探索 | 组件库开发秘籍
+  tagline: 工作学习 | 前沿技术探索 | 组件库开发秘籍
 
   # #右边图片
   # image:

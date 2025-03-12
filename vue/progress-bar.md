@@ -2,7 +2,7 @@
 
 需求如下：点击按钮后发送请求，然后展现出自定义的进度条。考虑到颜色上要自定义，决定自己写，放弃使用组件。
 
-## demo链接如下👇
+## demo 链接如下👇
 
 https://github.com/robert-jx/progress-bar
 

@@ -1,4 +1,4 @@
-# 基于vite的vue3项目创建
+# 基于 vite 的 vue3 项目创建
 
 随着 [`vite`](https://vitejs.cn/)、[`vue3`](https://cn.vuejs.org/) 以及 [`typescript`](https://www.typescriptlang.org/zh/) 的强强联手，越来越多的前端感受到其便利并开始进入学习。那么如何快速且全面的创建一个的 `vue3` 项目？这里做了一些总结：
 
