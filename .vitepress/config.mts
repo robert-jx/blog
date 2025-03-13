@@ -82,6 +82,9 @@ export default defineConfig({
             { text: '解决跨页选择后对数据判断的问题', link: '/javascript/crosspage-selection' },
             { text: '获取 image 图片的原始尺寸', link: '/javascript/image-originsize' },
             { text: '生成桌面快捷方式', link: '/javascript/shortcuts' },
+            { text: '防抖和节流', link: '/javascript/request-control' },
+            { text: '实现模糊过滤功能', link: '/javascript/key-search' },
+            { text: '数组去重', link: '/javascript/arr-deduplication' }
           ]
         }
       ],
