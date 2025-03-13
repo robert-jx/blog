@@ -92,7 +92,8 @@ export default defineConfig({
             { text: '生成二维码', link: '/python/qrcode' },
             { text: '坐标对比的GUI程序实现', link: '/python/coordinate-compare' },
             { text: '简易记事本的实现', link: '/python/book' },
-            { text: '类 xftp 的文件传输工具的实现', link: '/python/ftp' }
+            { text: '类 xftp 的文件传输工具的实现', link: '/python/ftp' },
+            { text: '调用 Ollama 使用大语言模型', link: '/python/model' }
           ]
         }
       ],
