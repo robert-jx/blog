@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as r,ae as d}from"./chunks/framework.CLNW5JS9.js";const h=JSON.parse('{"title":"键盘事件","description":"","frontmatter":{},"headers":[],"relativePath":"vue/keyword.md","filePath":"vue/keyword.md"}'),n={name:"vue/keyword.md"};function l(c,t,i,s,o,x){return r(),a("div",null,t[0]||(t[0]=[d("",9)]))}const g=e(n,[["render",l]]);export{h as __pageData,g as default};
