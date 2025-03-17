@@ -8,9 +8,9 @@ hero:
   tagline: 工作学习 | 前沿技术探索 | 组件库开发秘籍
 
   # #右边图片
-  # image:
-  #   src: /images/logo.jpeg
-  #   alt: VitePress
+  image:
+    src: ./images/logo.jpeg
+    alt: VitePress
   actions:
     - theme: brand
       text: Vue

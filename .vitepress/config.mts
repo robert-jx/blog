@@ -108,6 +108,6 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/robert-jx' }
     ],
 
-    logo: '/images/logo.jpeg'
+    logo: './images/logo.jpeg'
   }
 })
