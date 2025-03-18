@@ -261,6 +261,11 @@ export default {
     // 创建控制器
     createControls() {
       controls = new OrbitControls(camera, renderer.domElement);
+      // 初始控制器配置
+      controls.enableDamping = true;  // 启用阻尼效果
+      // controls.dampingFactor = 0.05;
+      controls.minDistance = 1;       // 最小缩放距离（球体半径2 + 安全距离1）
+      controls.maxDistance = 5;      // 最大缩放距离
     },
     // 渲染
     render() {
