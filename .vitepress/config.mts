@@ -63,7 +63,8 @@ export default defineConfig({
           items: [
             { text: '安装与使用', link: '/three/use' },
             { text: '镜头切换', link: '/three/camera' },
-            { text: 'vue3-三维地图的实现', link: '/three/map' },
+            { text: '三维地图的实现', link: '/three/map' },
+            { text: '使用 three.js 实现全景图 VR 预览功能', link: '/three/panorama' },
           ]
         }
       ],
