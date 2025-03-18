@@ -109,5 +109,5 @@ export default defineConfig({
     ],
 
     logo: './images/logo.jpeg'
-  }
+  },
 })
