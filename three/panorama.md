@@ -55,20 +55,25 @@ export default {
 
 ## 完整代码
 
-这里分别监听了鼠标的左键和右键，分别实现了点击漫游、加点和右键菜单功能。
+这里分别监听了鼠标的左键和右键，分别实现了点击漫游、加点和右键菜单功能。还实现了普通标记点开打开图像的功能。
 
 ```html
 <template>
   <div class="three-box">
+
     <div class="three-model" id="container"></div>
     <div class="scene-box" @click="isShow = !isShow">场景</div>
     <div class="scene-list" v-if="isShow">
       <div class="scene-item" v-for="(item, index) in dataList" :key="index" @click="toChange(item)">{{ item.name }}
       </div>
     </div>
+
     <div v-if="showMenu" class="menu-box" :style="{ top: menuTop + 'px', left: menuLeft + 'px' }">
       <div class="menu-item" @click.stop="deletePoint">删除</div>
     </div>
+
+    <el-image-viewer v-if="dialogVisible" :url-list="previewList" hide-on-click-modal teleported :on-close="handleClose"
+      class="my-image-viewer"></el-image-viewer>
   </div>
 </template>
 
@@ -76,6 +81,8 @@ export default {
 import * as THREE from "three";
 import TWEEN from 'tween.js';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
+import ElImageViewer from 'element-ui/packages/image/src/image-viewer'
 
 // 定义场景
 const scene = new THREE.Scene();
@@ -94,8 +101,11 @@ var cameraGroup = new THREE.Group();
 var roamGroup = new THREE.Group();
 // 文字标题组，方便统一管理
 var textGroup = new THREE.Group();
+// 标注标题组，方便统一管理
+var labelGroup = new THREE.Group();
 export default {
   name: "three-model",
+  components: { ElImageViewer },
   data() {
     return {
       publicPath: process.env.BASE_URL,
@@ -105,7 +115,7 @@ export default {
       roamImg: require('@/assets/logo.png'),
       // demo数据
       dataList: [
-        { id: '1', name: '大厅', url: require('@/assets/background.jpg'), link: [{ id: '2', name: '公路', type: 'link', url: require('@/assets/back.jpg'), x: -4, y: -1, z: -2, }], marker: [{ id: '6', name: '大厅摄像头', type: 'marker', x: 2, y: 1, z: 3 }] },
+        { id: '1', name: '大厅', url: require('@/assets/background.jpg'), link: [{ id: '2', name: '公路', type: 'link', url: require('@/assets/back.jpg'), x: -4, y: -1, z: -2, }], marker: [{ id: '6', name: '大厅摄像头', type: 'marker', x: 2, y: 1, z: 3 }], label: [{ id: '10', name: '柜子', type: 'label', x: 4, y: 0, z: -2, url: require('@/assets/guizi.jpg') }] },
         { id: '2', name: '公路', url: require('@/assets/back.jpg'), link: [{ id: '1', name: '大厅', type: 'link', url: require('@/assets/background.jpg'), x: 4, y: 1, z: 2, }, { id: '3', name: '房间', type: 'link', url: require('@/assets/back1.jpg'), x: 1, y: -1, z: 4, }], marker: [{ id: '6', name: '大厅摄像头2号', type: 'marker', x: 1, y: 1, z: 3 }] },
         { id: '3', name: '房间', url: require('@/assets/back1.jpg'), link: [], marker: [] },
       ],
@@ -117,6 +127,10 @@ export default {
       menuTop: 30,
       menuLeft: 30,
       spriteObj: null,
+      // 图片预览
+      dialogVisible: false,
+      previewList: []
+
     };
   },
   created() { },
@@ -183,10 +197,11 @@ export default {
       sphere = new THREE.Mesh(sphere_geometry, sphere_material)
       scene.add(sphere)
     },
-    // 创建监控点和漫游标记
+    // 创建监控点和漫游标记以及物品标记
     createPoint(row) {
       let roamList = row.link;
       let markerList = row.marker;
+      let labelList = row.label;
 
       const texLoader = new THREE.TextureLoader()
       const texture = texLoader.load(require("@/assets/roam.png"))
@@ -199,6 +214,13 @@ export default {
       const texture1 = texLoader1.load(require("@/assets/camera.png"))
       const spriteMaterial1 = new THREE.SpriteMaterial({
         map: texture1,
+        transparent: true, //开启透明(纹理图片png有透明信息),
+      })
+
+      const texLoader2 = new THREE.TextureLoader()
+      const texture2 = texLoader2.load(require("@/assets/label.png"))
+      const spriteMaterial2 = new THREE.SpriteMaterial({
+        map: texture2,
         transparent: true, //开启透明(纹理图片png有透明信息),
       })
       // 漫游标记
@@ -223,10 +245,22 @@ export default {
         cameraGroup.add(sprite)
         this.createTextSprite(v.name, v.x, v.y, v.z, 'rgba(0, 0, 0, 0.5)', 'white', 24)
       })
+      labelList?.map(v => {
+
+        let sprite = new THREE.Sprite(spriteMaterial2)
+        // sprite.id = v.id
+        sprite.scale.set(.5, .5, .5)
+        sprite.position.set(v.x, v.y, v.z)
+        sprite.userData = v;
+        labelGroup.add(sprite)
+
+        this.createTextSprite(v.name, v.x, v.y, v.z, 'rgba(0, 0, 0, 0.5)', 'white', 24)
+      })
 
       scene.add(roamGroup)
       scene.add(cameraGroup)
       scene.add(textGroup)
+      scene.add(labelGroup)
 
     },
     // 创建灯光
@@ -343,15 +377,30 @@ export default {
             }
           }
 
+          while (labelGroup.children.length > 0) {
+            const child = labelGroup.children[0];
+            labelGroup.remove(child);
+
+            // 可选：释放子对象的几何体和材质资源
+            if (child.isMesh) {
+              child.geometry?.dispose();
+              child.material?.dispose();
+            }
+          }
+
+
           let obj = this.dataList?.find((item) => item.id == row.id)
           camera.position.set(0, 0, 3)
           this.createPoint(obj)
         }, 900)
       }
       // 如果是监控点，则打开监控点弹窗播放视频
-      else {
+      else if (row.type == 'marker') {
         console.log('open video')
         /*--------------------*/
+      }
+      else if (row.type == 'label') {
+        this.handleOpen(row)
       }
     },
     // 漫游过程的补间动画
@@ -518,7 +567,14 @@ export default {
       that.showMenu = true
       that.$forceUpdate()
     },
-
+    handleOpen(row) {
+      this.previewList = [row.url]
+      this.dialogVisible = true;
+    },
+    handleClose() {
+      this.previewList = []
+      this.dialogVisible = false;
+    }
   },
 };
 </script>
