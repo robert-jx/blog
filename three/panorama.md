@@ -55,17 +55,20 @@ export default {
 
 ## 完整代码
 
-这里分别监听了鼠标的左键和右键，分别实现了点击漫游、加点和右键菜单功能。还实现了普通标记点开打开图像的功能。
+这里分别监听了鼠标的左键和右键，分别实现了点击漫游、加点和右键菜单功能。还实现了普通标记点开打开图像以及小地图的功能。
 
 ```html
 <template>
   <div class="three-box">
-
     <div class="three-model" id="container"></div>
     <div class="scene-box" @click="isShow = !isShow">场景</div>
     <div class="scene-list" v-if="isShow">
       <div class="scene-item" v-for="(item, index) in dataList" :key="index" @click="toChange(item)">{{ item.name }}
       </div>
+    </div>
+    <div class="thumb-box">
+      <img :src="thumbImg" alt="">
+      <img id="thumb-point" class="thumb-point" :src="pointImg" :style="{ 'top': thumby, 'left': thumbx }" alt="">
     </div>
 
     <div v-if="showMenu" class="menu-box" :style="{ top: menuTop + 'px', left: menuLeft + 'px' }">
@@ -115,9 +118,26 @@ export default {
       roamImg: require('@/assets/logo.png'),
       // demo数据
       dataList: [
-        { id: '1', name: '大厅', url: require('@/assets/background.jpg'), link: [{ id: '2', name: '公路', type: 'link', url: require('@/assets/back.jpg'), x: -4, y: -1, z: -2, }], marker: [{ id: '6', name: '大厅摄像头', type: 'marker', x: 2, y: 1, z: 3 }], label: [{ id: '10', name: '柜子', type: 'label', x: 4, y: 0, z: -2, url: require('@/assets/guizi.jpg') }] },
-        { id: '2', name: '公路', url: require('@/assets/back.jpg'), link: [{ id: '1', name: '大厅', type: 'link', url: require('@/assets/background.jpg'), x: 4, y: 1, z: 2, }, { id: '3', name: '房间', type: 'link', url: require('@/assets/back1.jpg'), x: 1, y: -1, z: 4, }], marker: [{ id: '6', name: '大厅摄像头2号', type: 'marker', x: 1, y: 1, z: 3 }] },
-        { id: '3', name: '房间', url: require('@/assets/back1.jpg'), link: [], marker: [] },
+        {
+          id: '1', name: '大厅', url: require('@/assets/background.jpg'),
+          thumbx: '10%',
+          thumby: '20%',
+          // lookat:
+          link: [{ id: '2', name: '公路', type: 'link', url: require('@/assets/back.jpg'), x: -4, y: -1, z: -2, }],
+          marker: [{ id: '6', name: '大厅摄像头', type: 'marker', x: 2, y: 1, z: 3 }],
+          label: [{ id: '10', name: '柜子', type: 'label', x: 4, y: 0, z: -2, url: require('@/assets/guizi.jpg') }]
+        },
+        {
+          id: '2', name: '公路', url: require('@/assets/back.jpg'),
+          thumbx: '10%',
+          thumby: '30%',
+          link: [{ id: '1', name: '大厅', type: 'link', url: require('@/assets/background.jpg'), x: 4, y: 1, z: 2, }, { id: '3', name: '房间', type: 'link', url: require('@/assets/back1.jpg'), x: 1, y: -1, z: 4, }], marker: [{ id: '6', name: '大厅摄像头2号', type: 'marker', x: 1, y: 1, z: 3 }]
+        },
+        {
+          id: '3', name: '房间', url: require('@/assets/back1.jpg'), link: [], marker: [],
+          thumbx: '30%',
+          thumby: '60%',
+        },
       ],
       isShow: false,
       isClickCamera: false,
@@ -129,8 +149,14 @@ export default {
       spriteObj: null,
       // 图片预览
       dialogVisible: false,
-      previewList: []
+      previewList: [],
 
+      //缩略图参数
+      thumbImg: require('@/assets/thumb.png'),
+      pointImg: require('@/assets/point.png'),
+      thumbx: '10%',
+      thumby: '20%',
+      thumbRotate: '0'
     };
   },
   created() { },
@@ -307,6 +333,7 @@ export default {
       TWEEN.update();
       renderer.render(scene, camera);
       controls.update();
+      this.getCamerPosition();
     },
     // 监听点击事件
     onClick(event) {
@@ -390,6 +417,8 @@ export default {
 
 
           let obj = this.dataList?.find((item) => item.id == row.id)
+          this.thumbx = obj.thumbx;
+          this.thumby = obj.thumby;
           camera.position.set(0, 0, 3)
           this.createPoint(obj)
         }, 900)
@@ -497,7 +526,9 @@ export default {
           child.material?.dispose();
         }
       }
-
+      let obj = this.dataList?.find((item) => item.id == row.id)
+      this.thumbx = obj.thumbx;
+      this.thumby = obj.thumby;
       camera.position.set(0, 0, 3)
       this.createPoint(row)
     },
@@ -574,7 +605,32 @@ export default {
     handleClose() {
       this.previewList = []
       this.dialogVisible = false;
-    }
+    },
+    getCamerPosition() {
+
+      // 获取相机的旋转四元数
+
+      let rotation = camera.quaternion.clone()
+
+      // 转换为欧拉角（用rotation取特定轴上的旋转角度）
+
+      let euler = new THREE.Euler().setFromQuaternion(rotation, 'YXZ')
+
+      // // 获取绕z轴的旋转角度（转换为度）
+
+      let currentRotZ = THREE.MathUtils.radToDeg(-euler.y)
+      // console.log('currentRotZ', currentRotZ)
+      const bgRoate = document.querySelector('.thumb-point')
+
+      bgRoate.style.transform = `rotate(${currentRotZ
+
+        ? Number(currentRotZ)
+
+        : currentRotZ
+
+        }deg)`
+    },
+
   },
 };
 </script>
@@ -589,6 +645,30 @@ export default {
   .three-model {
     width: 100%;
     height: 100%;
+  }
+
+  .thumb-box {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    // height: 250px;
+    padding: 10px;
+    z-index: 9999;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+
+    img {
+      width: auto;
+      height: 220px;
+    }
+
+    .thumb-point {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+    }
   }
 
   .scene-box {
