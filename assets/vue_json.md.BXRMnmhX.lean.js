@@ -1,0 +1,1 @@
+import{_ as i,c as a,o as n,ae as h}from"./chunks/framework.CLNW5JS9.js";const g=JSON.parse('{"title":"json 编辑器使用总结","description":"","frontmatter":{},"headers":[],"relativePath":"vue/json.md","filePath":"vue/json.md"}'),k={name:"vue/json.md"};function l(p,s,t,e,E,d){return n(),a("div",null,s[0]||(s[0]=[h("",23)]))}const y=i(k,[["render",l]]);export{g as __pageData,y as default};
