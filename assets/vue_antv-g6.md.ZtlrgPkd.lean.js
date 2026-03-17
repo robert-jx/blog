@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.CLNW5JS9.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"vue/antv-g6.md","filePath":"vue/antv-g6.md"}'),n={name:"vue/antv-g6.md"};function r(o,s,c,p,_,d){return a(),t("div")}const v=e(n,[["render",r]]);export{m as __pageData,v as default};
