@@ -9,7 +9,7 @@ hero:
 
   # #右边图片
   image:
-    src: ./images/vessels.jpeg
+    src: /blog/images/vessels.jpeg
     alt: VitePress
   actions:
     - theme: brand
