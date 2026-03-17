@@ -12,7 +12,8 @@ export default defineConfig({
       { text: 'Vue', link: '/vue/axios' },
       { text: 'Javascript', link: '/javascript/copy-text' },
       { text: 'Three.js', link: '/three/use' },
-      { text: 'Python', link: '/python/qrcode' }
+      { text: 'Python', link: '/python/qrcode' },
+      { text: 'AI研究', link: '/ai/local-openclaw' }
     ],
 
     sidebar: {
@@ -101,6 +102,15 @@ export default defineConfig({
             { text: '实现简单的微信自动回复功能', link: '/python/auto-response' }
           ]
         }
+      ],
+      '/ai/': [
+        {
+          text: 'OpenClaw',
+          items: [
+            { text: 'Windows + Node.js + MiniMax', link: '/ai/local-openclaw' },
+            { text: 'WSL + Node.js + MiniMax', link: '/ai/wsl-openclaw' }
+          ]
+        },
       ],
     },
 

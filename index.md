@@ -24,6 +24,9 @@ hero:
     - theme: alt
       text: Python
       link: /python/qrcode
+    - theme: alt
+      text: AI研究
+      link: /ai/local-openclaw
 
 features:
   - title: 工作学习
