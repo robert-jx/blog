@@ -38,6 +38,7 @@ export default defineConfig({
             { text: '实时监听窗口宽度变化', link: '/vue/real-window' },
             { text: '实现项目的自动化部署', link: '/vue/deploy' },
             { text: 'antv g6 树图与拓扑图实战', link: '/vue/antv-g6' },
+            { text: 'antv g6 展示问题修复', link: '/vue/antv-g6-error' },
           ]
         },
 
